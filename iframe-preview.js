@@ -61,7 +61,7 @@ window.addEventListener(
               const phoneVal = formatTelAttr(data[field]);
               const extensionVal = document
                 .querySelector(".extension")
-                .innerHTML.replace(/\D/g, "");
+                ?.innerHTML.replace(/\D/g, "");
 
               el.setAttribute("href", phoneVal);
 
