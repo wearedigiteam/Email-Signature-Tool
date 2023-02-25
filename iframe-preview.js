@@ -51,6 +51,14 @@ window.addEventListener(
               el.querySelector("a").setAttribute("href", data[field]);
               el.style.display = data[field].length ? "inline" : "none";
               break;
+              
+            case "slogan":
+              const sloganText = document.querySelector(".slogan-text");
+              const sloganIcon = document.querySelector(".slogan-icon");
+              
+              console.log(el);
+              
+              break;
 
             case "email":
               el.setAttribute("href", `mailto:${data[field]}`);
@@ -58,19 +66,20 @@ window.addEventListener(
               break;
 
             case "phone":
+            case "phone-alternate":
               const phoneVal = formatTelAttr(data[field]);
-              const extensionVal = document
+              /*const extensionVal = document
                 .querySelector(".extension")
-                ?.innerHTML.replace(/\D/g, "");
+                ?.innerHTML.replace(/\D/g, "");*/
 
               el.setAttribute("href", phoneVal);
 
-              if (extensionVal) {
+              /*if (extensionVal) {
                 el.setAttribute(
                   "href",
                   `${el.getAttribute("href")},${extensionVal}`
                 );
-              }
+              }*/
 
               document.querySelector(
                 ".phone-value"
