@@ -53,10 +53,37 @@ window.addEventListener(
               break;
               
             case "slogan":
-              const sloganText = document.querySelector(".slogan-text");
-              const sloganIcon = document.querySelector(".slogan-icon");
+              const sloganText = el.querySelector(".slogan-text");
+              const sloganIcon = el.querySelector(".slogan-icon");
               
-              console.log(el);
+              console.log(data[field]);
+              
+              switch data[field] {
+                case "be-good":
+                sloganText.innerHTML = "Be good.<br>Let others call you great.";
+                sloganIcon.setAttribute("src", "https://uploads-ssl.webflow.com/5e8354b8b1c03c868cc5b417/63f92ec7c0c30973b36bf3d0_chevron_100x100.gif");
+                break;
+                
+                case "more-heart":
+                sloganText.innerHTML = "More heart.<br>Less ego.";
+                sloganIcon.setAttribute("src", "https://uploads-ssl.webflow.com/5e8354b8b1c03c868cc5b417/63f92ed8536875536224d98e_Semicircle_100x100.gif");
+                break;
+                
+                case "work-hard":
+                sloganText.innerHTML = "Work hard.<br>Play nice.";
+                sloganIcon.setAttribute("src", "https://uploads-ssl.webflow.com/5e8354b8b1c03c868cc5b417/63f92ed4ac3352132bfbfb68_Square_100x100.gif");
+                break;
+                
+                case "fr-more-heart":
+                sloganText.innerHTML = "Moins d'égos,<br>plus d'égaux.";
+                sloganIcon.setAttribute("src", "https://uploads-ssl.webflow.com/5e8354b8b1c03c868cc5b417/63f92ed8536875536224d98e_Semicircle_100x100.gif");
+                break;
+                
+                case "fr-work-hard":
+                sloganText.innerHTML = "Le karma,<br>ça forge aussi la carrière.";
+                sloganIcon.setAttribute("src", "https://uploads-ssl.webflow.com/5e8354b8b1c03c868cc5b417/63f92ed4ac3352132bfbfb68_Square_100x100.gif");
+                break;
+              }
               
               break;
 
@@ -68,6 +95,7 @@ window.addEventListener(
             case "phone":
             case "phone-alternate":
               const phoneVal = formatTelAttr(data[field]);
+              console.log(data[field], phoneVal);
               /*const extensionVal = document
                 .querySelector(".extension")
                 ?.innerHTML.replace(/\D/g, "");*/
