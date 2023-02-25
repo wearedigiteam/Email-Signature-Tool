@@ -83,7 +83,6 @@ window.addEventListener(
             case "phone":
             case "phone-alternate":
               const phoneVal = formatTelAttr(data[field]);
-              console.log(data[field], phoneVal,formatPhoneNumber(data[field]));
 
               el.setAttribute("href", phoneVal);
 
