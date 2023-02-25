@@ -37,16 +37,6 @@ window.addEventListener(
               }
               break;
 
-            case "corporate":
-              if (data[field] === "Workplace awards") {
-                el.innerHTML = workplaceAwards;
-              } else if (data[field] === "Technical certifications") {
-                el.innerHTML = technicalCertifications;
-              } else {
-                el.innerHTML = "";
-              }
-              break;
-
             case "linkedin":
               el.querySelector("a").setAttribute("href", data[field]);
               el.style.display = data[field].length ? "inline" : "none";
@@ -55,8 +45,6 @@ window.addEventListener(
             case "slogan":
               const sloganText = el.querySelector(".slogan-text");
               const sloganIcon = el.querySelector(".slogan-icon");
-              
-              console.log(data[field]);
               
               switch (data[field]) {
                 case "be-good":
@@ -95,74 +83,21 @@ window.addEventListener(
             case "phone":
             case "phone-alternate":
               const phoneVal = formatTelAttr(data[field]);
-              console.log(data[field], phoneVal);
-              /*const extensionVal = document
-                .querySelector(".extension")
-                ?.innerHTML.replace(/\D/g, "");*/
+              console.log(data[field], phoneVal,formatPhoneNumber(data[field]);
 
               el.setAttribute("href", phoneVal);
-
-              /*if (extensionVal) {
-                el.setAttribute(
-                  "href",
-                  `${el.getAttribute("href")},${extensionVal}`
-                );
-              }*/
 
               document.querySelector(
                 ".phone-value"
               ).innerHTML = formatPhoneNumber(data[field]);
               break;
 
-            case "extension":
-              const extPhoneVal = document.querySelector(".phone");
-              const extensionValue = data[field].replace(/\D/g, "");
-              const phoneAndExtension = extPhoneVal
-                .getAttribute("href")
-                .split(",");
-
-              // Create new or overwrite existing extension value
-              phoneAndExtension[1] = extensionValue;
-              extPhoneVal.setAttribute("href", phoneAndExtension.join(","));
-
-              if (extensionValue) {
-                el.innerHTML = `&#160;x${data[field].replace(/\D/g, "")}`;
-              } else {
-                el.innerHTML = "";
-              }
-
-              break;
-
             default:
               el.innerText = data[field];
-          }
-
-          // Show/hide custom messages field based on available content
-          const cm = document.querySelector("#custom-messages");
-          const cm_corp = document.querySelector("#custom-message_corporate");
-          const cm_pers = document.querySelector("#custom-message_personal");
-
-          if (cm_corp && cm_pers) {
-            const cm_corp_val = cm_corp.querySelector(".corporate").innerHTML;
-            const cm_pers_val = cm_pers.querySelector(".message").innerText;
-
-            cm_corp.style.display = cm_corp_val.length ? "table-row" : "none";
-            cm_pers.style.display = cm_pers_val.length ? "table-row" : "none";
-            cm.style.borderTopColor =
-              cm_corp_val.length || cm_pers_val.length
-                ? "#B3B5B8"
-                : "transparent";
           }
         }
       }
     }
-
-    // Do we trust the sender of this message?  (might be
-    // different from what we originally opened, for example).
-    if (event.origin !== "http://example.com") return;
-
-    // event.source is popup
-    // event.data is "hi there yourself!  the secret response is: rheeeeet!"
   },
   false
 );
