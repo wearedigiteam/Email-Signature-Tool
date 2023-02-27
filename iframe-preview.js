@@ -56,6 +56,11 @@ window.addEventListener(
               const sloganIcon = el.querySelector(".slogan-icon");
               
               switch (data[field]) {
+                case "good-ideas":
+                  sloganText.innerHTML = "Good ideas lead to great things.";
+                  sloganIcon.setAttribute("src", "https://uploads-ssl.webflow.com/5e8354b8b1c03c868cc5b417/63f92ecd595134d132405147_star_100x100.gif");
+                  break;
+                  
                 case "be-good":
                 sloganText.innerHTML = "Be good.<br>Let others call you great.";
                 sloganIcon.setAttribute("src", "https://uploads-ssl.webflow.com/5e8354b8b1c03c868cc5b417/63f92ec7c0c30973b36bf3d0_chevron_100x100.gif");
