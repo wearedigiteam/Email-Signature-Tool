@@ -36,6 +36,13 @@ window.addEventListener(
                 el.innerHTML = "";
               }
               break;
+            
+            case "pronouns":
+              if(data[field] !== "") {
+                el.innerHTML = `(${data[field]})`;
+              }
+              
+              break;
 
             case "linkedin":
               el.querySelector("a").setAttribute("href", data[field]);
