@@ -40,6 +40,8 @@ window.addEventListener(
             case "pronouns":
               if(data[field] !== "") {
                 el.innerHTML = `(${data[field]})`;
+              } else {
+                el.innerHTML = "";
               }
               
               break;
